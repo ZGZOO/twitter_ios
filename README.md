@@ -1,4 +1,4 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Twitter*
 
 **Name of your app** is a basic twitter app to read your tweets.
 
@@ -32,6 +32,6 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://res.cloudinary.com/headincloud/image/upload/v1600412189/twitter_gif_lbcnb2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-
+<img src='https://res.cloudinary.com/headincloud/image/upload/v1600412666/Screen_Shot_2020-09-17_at_11.31.33_PM_y3pn0d.png' title='I can show these' width='' alt='I can show these' />
 
 
