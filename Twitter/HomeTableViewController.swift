@@ -17,13 +17,13 @@ class HomeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweet()
-//        myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
-//        tableView.refreshControl = myRefreshControl
+        loadTweets()
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
     }
     
-    @objc func loadTweet(){
-        numberOfTweet = 10
+    @objc func loadTweets(){
+        numberOfTweet = 20
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": numberOfTweet]
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
@@ -35,7 +35,9 @@ class HomeTableViewController: UITableViewController {
             }
 
             self.tableView.reloadData()
+            // stop the refreshing spinning circle
             self.myRefreshControl.endRefreshing()
+            
         }, failure: { (Error) in
             print("Could not retreive tweets!")
         })
@@ -53,10 +55,15 @@ class HomeTableViewController: UITableViewController {
             }
 
             self.tableView.reloadData()
-            self.myRefreshControl.endRefreshing()
         }, failure: { (Error) in
             print("Could not retreive tweets!")
         })
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == tweetArray.count {
+            loadMoreTweets()
+        }
     }
 
     @IBAction func onLogout(_ sender: Any) {
