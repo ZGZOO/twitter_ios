@@ -18,27 +18,22 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweet()
-        myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
-        tableView.refreshControl = myRefreshControl
+//        myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
+//        tableView.refreshControl = myRefreshControl
     }
     
     @objc func loadTweet(){
-        numberOfTweet = 20
+        numberOfTweet = 10
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": numberOfTweet]
-        print("hello here before calling api")
-        TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
             
-            print("hello here inside calling api")
-            print("tweets ", tweets)
             
             self.tweetArray.removeAll()
             for tweet in tweets{
                 self.tweetArray.append(tweet)
-                print(tweet)
             }
-            print(self.tweetArray)
-            
+
             self.tableView.reloadData()
             self.myRefreshControl.endRefreshing()
         }, failure: { (Error) in
@@ -50,18 +45,13 @@ class HomeTableViewController: UITableViewController {
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         numberOfTweet = numberOfTweet + 20
         let myParams = ["count": numberOfTweet]
-        TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
-            
-            print("hello here inside calling api")
-            print("tweets ", tweets)
-            
+        TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
+
             self.tweetArray.removeAll()
             for tweet in tweets{
                 self.tweetArray.append(tweet)
-                print(tweet)
             }
-            print(self.tweetArray)
-            
+
             self.tableView.reloadData()
             self.myRefreshControl.endRefreshing()
         }, failure: { (Error) in
