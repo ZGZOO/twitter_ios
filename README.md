@@ -30,7 +30,7 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://res.cloudinary.com/headincloud/image/upload/v1600412189/twitter_gif_lbcnb2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://res.cloudinary.com/headincloud/image/upload/v1600567549/twitter_gif_ji6fvf.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
