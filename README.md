@@ -1,15 +1,11 @@
 # Project 3 - *Twitter*
 
-**Name of your app** is a basic twitter app to read your tweets.
+**Twitter** is a basic twitter app to read your tweets.
 
 Time spent: **10** hours spent in total
 
 # Attention:
-I need a re-grade after this submission.
-The Twitter API doesn't work somehow.
-I keep getting an empty tweets array.
-But I have written all the codes including the bonus part by following the video.
-Please, please give me a chance to give me a re-grade after this!!
+The number to access the Twitter API is limited.
 
 ## User Stories
 
