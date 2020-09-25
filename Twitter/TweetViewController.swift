@@ -8,22 +8,52 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweetTextView: UITextView!
+    
+    @IBOutlet weak var wordCountLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //keyboard shows up, cursor there, just let the user know
         tweetTextView.becomeFirstResponder()
-
         // Do any additional setup after loading the view.
+        tweetTextView.delegate = self
+        
     }
+    
+    // WORD COUNT
+    // live, get the word count in text view
+    // live, 280 - word count
+    // live, reflect in wordCountLabel
+//    let wordsLeft = 280 - self.tweetTextView
+//    if(wordsLeft > 0){
+//        wordCountLabel.text = textView.text.count + "words remaining"
+//    }else{
+//        wordCountLabel.text = textView.text.count + "word remaining"
+//    }
+    
+//    func textViewDidBeginEditing(_ textView: UITextView){
+//        print("count: \(textView.text.count)")
+//    }
+    
+//    func textViewDidChange(_ textView: UITextView){
+//        print("change,count: \(textView.text.count)")
+//        wordCountLabel.text = textView.text.count as! String + " words remaining"
+//    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+      let characterLimit = 280
+      let newText = NSString(string: tweetTextView.text!).replacingCharacters(in: range, with: text)
+      wordCountLabel.text = String(280 - newText.count) + " characters left"
+      return newText.count < characterLimit
+    }
+    
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
     
     @IBAction func tweet(_ sender: Any) {
         if (!tweetTextView.text.isEmpty){

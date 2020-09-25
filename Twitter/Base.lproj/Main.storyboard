@@ -178,14 +178,22 @@
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="280 characters left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77s-od-jr0">
+                                <rect key="frame" x="213" y="226" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="E4W-Ai-Fsl" firstAttribute="top" secondItem="7ju-MK-qwV" secondAttribute="top" id="93q-X4-6BR"/>
+                            <constraint firstItem="7ju-MK-qwV" firstAttribute="trailing" secondItem="77s-od-jr0" secondAttribute="trailing" constant="16" id="IrO-4Y-u7A"/>
                             <constraint firstItem="7ju-MK-qwV" firstAttribute="trailing" secondItem="E4W-Ai-Fsl" secondAttribute="trailing" id="Is9-62-hgF"/>
                             <constraint firstItem="E4W-Ai-Fsl" firstAttribute="leading" secondItem="7ju-MK-qwV" secondAttribute="leading" id="xL7-TZ-sY0"/>
+                            <constraint firstItem="77s-od-jr0" firstAttribute="top" secondItem="E4W-Ai-Fsl" secondAttribute="bottom" constant="54" id="xvL-zm-BFD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ju-MK-qwV"/>
                     </view>
@@ -205,6 +213,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tweetTextView" destination="E4W-Ai-Fsl" id="ycM-0C-Ai6"/>
+                        <outlet property="wordCountLabel" destination="77s-od-jr0" id="aKF-d4-sbB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUV-ib-tFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
