@@ -44,10 +44,16 @@ class TweetViewController: UIViewController, UITextViewDelegate {
 //        wordCountLabel.text = textView.text.count as! String + " words remaining"
 //    }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-      let characterLimit = 280
-      let newText = NSString(string: tweetTextView.text!).replacingCharacters(in: range, with: text)
-      wordCountLabel.text = String(280 - newText.count) + " characters left"
-      return newText.count < characterLimit
+        // TODO: Check the proposed new text character count
+        // Allow or disallow the new text
+        
+        // Set the max character limit
+        let characterLimit = 280
+        // Construct what the new text would be if we allowed the user's latest edit
+        let newText = NSString(string: tweetTextView.text!).replacingCharacters(in: range, with: text)
+        wordCountLabel.text = String(280 - newText.count) + " characters left"
+        // The new text should be allowed? True/False
+        return newText.count < characterLimit
     }
     
     
