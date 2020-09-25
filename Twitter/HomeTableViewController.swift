@@ -101,9 +101,6 @@ class HomeTableViewController: UITableViewController {
         
         let user = tweetArray[indexPath.row]["user"] as! NSDictionary
         
-//        cell.userNameLabel.text = "hello"
-//        cell.tweetContent.text = "there"
-        
         cell.userNameLabel.text = user["name"] as? String
         cell.tweetContent.text = tweetArray[indexPath.row]["text"] as? String
         
@@ -116,6 +113,8 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data{
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
         return cell
     }
     // MARK: - Table view data source
